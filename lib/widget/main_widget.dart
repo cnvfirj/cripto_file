@@ -54,11 +54,11 @@ class WidgetByOrient extends StatelessWidget{
      builder: (BuildContext context, Orientation orientation) {
        if(orientation==Orientation.portrait){
          return Column(
-           children: widgets(),
+           children: widgets(5),
          );
        }else{
          return Row(
-           children: widgets(),
+           children: widgets(6),
          );
        }
    },
@@ -66,7 +66,7 @@ class WidgetByOrient extends StatelessWidget{
    );
   }
 
-  List<Widget>widgets(){
+  List<Widget>widgets(int index){
     return [
       Flexible(
        child: keyWidget(),
@@ -74,7 +74,7 @@ class WidgetByOrient extends StatelessWidget{
       ),
       Flexible(
         child: commonWidget(),
-        flex: 5,
+        flex: index,
       ),
     ];
   }

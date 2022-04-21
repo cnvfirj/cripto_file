@@ -68,8 +68,14 @@ class WidgetByOrient extends StatelessWidget{
 
   List<Widget>widgets(){
     return [
-      keyWidget(),
-      commonWidget()
+      Flexible(
+       child: keyWidget(),
+        flex: 1,
+      ),
+      Flexible(
+        child: commonWidget(),
+        flex: 5,
+      ),
     ];
   }
 }

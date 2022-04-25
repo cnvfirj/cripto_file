@@ -1,9 +1,10 @@
 import 'package:cripto_file/constants/colors.dart';
+import 'package:cripto_file/constants/sized.dart';
 import 'package:flutter/material.dart';
 
 Widget keyWidget() {
-  return Center(
-    child: const KeyBlock(),
+  return const Center(
+    child: KeyBlock(),
   );
 }
 

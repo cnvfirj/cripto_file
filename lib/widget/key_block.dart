@@ -47,24 +47,12 @@ class _Portrait extends StatelessWidget {
             onPressed: () {},
           )),
         ),
-        const Delimiter(
-            EdgeInsets.only(top: 5, bottom: 5), width:Sized.widthDelimiter),
-        Flexible(
-          flex: 1,
-          child: IconButton(
-            icon: const Icon(Icons.share),
-            onPressed: () {},
-          ),
-        ),
-        const Delimiter(
-            EdgeInsets.only(top: 5, bottom: 5), width:Sized.widthDelimiter),
-        Flexible(
-          flex: 1,
-          child: IconButton(
-            icon: const Icon(Icons.clear),
-            onPressed: () {},
-          ),
-        )
+        const Delimiter(EdgeInsets.only(top: 5, bottom: 5),
+            width: Sized.widthDelimiter),
+        _Button(Icons.share, () {}),
+        const Delimiter(EdgeInsets.only(top: 5, bottom: 5),
+            width: Sized.widthDelimiter),
+        _Button(Icons.clear, () {}),
       ],
     );
   }
@@ -79,22 +67,16 @@ class _Landscape extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        _Button(
-              Icons.add,
-              (){}
-          ),
-
+        _Button(Icons.clear, () {}),
         const Delimiter(
-            EdgeInsets.only(left: 5, right: 5, top:5), height: Sized.widthDelimiter,),
-        Flexible(
-          flex: 1,
-          child: IconButton(
-            icon: const Icon(Icons.share),
-            onPressed: () {},
-          ),
+          EdgeInsets.only(left: 5, right: 5, top: 7),
+          height: Sized.widthDelimiter,
         ),
+        _Button(Icons.share, () {}),
         const Delimiter(
-            EdgeInsets.only(left: 5, right: 5,top:5),height: Sized.widthDelimiter,),
+          EdgeInsets.only(left: 5, right: 5, top: 10),
+          height: Sized.widthDelimiter,
+        ),
         Flexible(
             flex: 8,
             child: RotatedBox(
@@ -122,14 +104,12 @@ class _Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-       return Flexible(
-          flex: 1,
-          child:IconButton(
-            icon: Icon(_icon),
-            onPressed: _press,
-          )
-        );
+    return Flexible(
+        flex: 1,
+        child: IconButton(
+          icon: Icon(_icon),
+          onPressed: _press,
+        ));
   }
 }
 
@@ -138,7 +118,7 @@ class Delimiter extends StatelessWidget {
   final double? height;
   final double? width;
 
-  const Delimiter(this._edgeInsets, {this.height, this.width,Key? key})
+  const Delimiter(this._edgeInsets, {this.height, this.width, Key? key})
       : super(key: key);
 
   @override

@@ -42,12 +42,13 @@ class _Portrait extends StatelessWidget {
         Flexible(
           flex: 8,
           child: Center(
-            child:TextButton(
-              child: const Text('name key'),
-              onPressed: () {},
-            )
-          ),
+              child: TextButton(
+            child: const Text('name key'),
+            onPressed: () {},
+          )),
         ),
+        const Delimiter(
+            EdgeInsets.only(top: 5, bottom: 5), width:Sized.widthDelimiter),
         Flexible(
           flex: 1,
           child: IconButton(
@@ -55,6 +56,8 @@ class _Portrait extends StatelessWidget {
             onPressed: () {},
           ),
         ),
+        const Delimiter(
+            EdgeInsets.only(top: 5, bottom: 5), width:Sized.widthDelimiter),
         Flexible(
           flex: 1,
           child: IconButton(
@@ -83,6 +86,8 @@ class _Landscape extends StatelessWidget {
             onPressed: () {},
           ),
         ),
+        const Delimiter(
+            EdgeInsets.only(left: 5, right: 5), height: Sized.widthDelimiter,),
         Flexible(
           flex: 1,
           child: IconButton(
@@ -90,20 +95,71 @@ class _Landscape extends StatelessWidget {
             onPressed: () {},
           ),
         ),
+        const Delimiter(
+            EdgeInsets.only(left: 5, right: 5),height: Sized.widthDelimiter,),
         Flexible(
-          flex: 8,
+            flex: 8,
             child: RotatedBox(
-          quarterTurns: -1,
-          child: Center(
-          child:TextButton(
-            child: const Text(
-              'name key',
-            ),
-            onPressed: () {},
-          )
-          ),
-        ))
+              quarterTurns: -1,
+              child: Center(
+                  child: TextButton(
+                child: const Text(
+                  'name key',
+                ),
+                onPressed: () {},
+              )),
+            ))
       ],
     );
   }
 }
+
+typedef Press = Function();
+
+class _Button extends StatelessWidget {
+  final EdgeInsetsGeometry _edgeInsets;
+  final IconData _icon;
+  final Press _press;
+
+  const _Button(this._edgeInsets, this._icon, this._press);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: _edgeInsets,
+        child: IconButton(
+          icon: Icon(_icon),
+          onPressed: _press,
+        ));
+  }
+}
+
+class Delimiter extends StatelessWidget {
+  final EdgeInsetsGeometry _edgeInsets;
+  final double? height;
+  final double? width;
+
+  const Delimiter(this._edgeInsets, {this.height, this.width,Key? key})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    print('width $width height $height');
+    return Padding(
+        padding: _edgeInsets,
+        child: SizedBox(
+          height: height,
+          width: width,
+          child: Container(
+            color: ConstantColors.colorDelimiter,
+          ),
+        ));
+  }
+}
+/*
+*  return Wrap(
+      runSpacing: 30,
+      direction: Axis.vertical,
+      alignment: WrapAlignment.center,
+      children: text.split("").map((string) => Text(string, style: TextStyle(fontSize: 22))).toList(),
+    );*/

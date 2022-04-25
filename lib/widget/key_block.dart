@@ -79,15 +79,13 @@ class _Landscape extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Flexible(
-          flex: 1,
-          child: IconButton(
-            icon: const Icon(Icons.clear),
-            onPressed: () {},
+        _Button(
+              Icons.add,
+              (){}
           ),
-        ),
+
         const Delimiter(
-            EdgeInsets.only(left: 5, right: 5), height: Sized.widthDelimiter,),
+            EdgeInsets.only(left: 5, right: 5, top:5), height: Sized.widthDelimiter,),
         Flexible(
           flex: 1,
           child: IconButton(
@@ -96,7 +94,7 @@ class _Landscape extends StatelessWidget {
           ),
         ),
         const Delimiter(
-            EdgeInsets.only(left: 5, right: 5),height: Sized.widthDelimiter,),
+            EdgeInsets.only(left: 5, right: 5,top:5),height: Sized.widthDelimiter,),
         Flexible(
             flex: 8,
             child: RotatedBox(
@@ -117,20 +115,21 @@ class _Landscape extends StatelessWidget {
 typedef Press = Function();
 
 class _Button extends StatelessWidget {
-  final EdgeInsetsGeometry _edgeInsets;
   final IconData _icon;
   final Press _press;
 
-  const _Button(this._edgeInsets, this._icon, this._press);
+  const _Button(this._icon, this._press);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: _edgeInsets,
-        child: IconButton(
-          icon: Icon(_icon),
-          onPressed: _press,
-        ));
+
+       return Flexible(
+          flex: 1,
+          child:IconButton(
+            icon: Icon(_icon),
+            onPressed: _press,
+          )
+        );
   }
 }
 
@@ -144,7 +143,6 @@ class Delimiter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('width $width height $height');
     return Padding(
         padding: _edgeInsets,
         child: SizedBox(

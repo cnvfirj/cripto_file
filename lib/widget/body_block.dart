@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 Widget bodyWidget(){
-  return BodyWidget();
+  return const BodyWidget();
 }
 
 class BodyWidget extends StatelessWidget{

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cripto_file/widget/bar_block.dart';
 
-import 'common_block.dart';
+import 'body_block.dart';
 import 'key_block.dart';
 
 class MainWidget extends StatelessWidget {
@@ -74,16 +74,12 @@ class WidgetByOrient extends StatelessWidget {
 
   List<Widget> widgets(int index) {
     return [
-      // Flexible(
-      //  child:
       Flexible(
           child: keyWidget(),
           flex:1
       ),
-      //   flex: 1,
-      // ),
       Flexible(
-        child: commonWidget(),
+        child: bodyWidget(),
         flex: index,
       ),
     ];

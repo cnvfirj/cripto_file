@@ -1,7 +1,6 @@
 import 'package:cripto_file/constants/colors.dart';
 import 'package:cripto_file/constants/sized.dart';
 import 'package:flutter/material.dart';
-
 import 'common_widget.dart';
 
 Widget keyWidget() {

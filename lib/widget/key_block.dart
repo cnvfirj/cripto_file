@@ -2,6 +2,8 @@ import 'package:cripto_file/constants/colors.dart';
 import 'package:cripto_file/constants/sized.dart';
 import 'package:flutter/material.dart';
 
+import 'common_widget.dart';
+
 Widget keyWidget() {
   return const Center(
     child: KeyBlock(),
@@ -39,20 +41,20 @@ class _Portrait extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Flexible(
-          flex: 8,
+        Expanded(
+          // flex: 8,
           child: Center(
               child: TextButton(
             child: const Text('name key'),
             onPressed: () {},
           )),
         ),
-        const Delimiter(EdgeInsets.only(top: 5, bottom: 5),
+        const CommonDelimiter(EdgeInsets.only(top: 5, bottom: 5),
             width: Sized.widthDelimiter),
-        _Button(Icons.share, () {}),
-        const Delimiter(EdgeInsets.only(top: 5, bottom: 5),
+        CommonButton(Icons.share, () {}),
+        const CommonDelimiter(EdgeInsets.only(top: 5, bottom: 5),
             width: Sized.widthDelimiter),
-        _Button(Icons.clear, () {}),
+        CommonButton(Icons.clear, () {}),
       ],
     );
   }
@@ -67,73 +69,35 @@ class _Landscape extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        _Button(Icons.clear, () {}),
-        const Delimiter(
-          EdgeInsets.only(left: 5, right: 5, top: 7),
+        CommonButton(Icons.clear, () {}),
+        const CommonDelimiter(
+          EdgeInsets.only(left: 5, right: 5),
           height: Sized.widthDelimiter,
         ),
-        _Button(Icons.share, () {}),
-        const Delimiter(
-          EdgeInsets.only(left: 5, right: 5, top: 10),
+        CommonButton(Icons.share, () {}),
+        const CommonDelimiter(
+          EdgeInsets.only(left: 5, right: 5),
           height: Sized.widthDelimiter,
         ),
-        Flexible(
-            flex: 8,
-            child: RotatedBox(
-              quarterTurns: -1,
-              child: Center(
-                  child: TextButton(
-                child: const Text(
-                  'name key',
-                ),
-                onPressed: () {},
-              )),
-            ))
+        Expanded(
+          child:Wrap(
+
+            direction: Axis.vertical,
+            alignment: WrapAlignment.center,
+            children: widgets('name key')
+          )
+            )
       ],
     );
   }
-}
 
-typedef Press = Function();
-
-class _Button extends StatelessWidget {
-  final IconData _icon;
-  final Press _press;
-
-  const _Button(this._icon, this._press);
-
-  @override
-  Widget build(BuildContext context) {
-    return Flexible(
-        flex: 1,
-        child: IconButton(
-          icon: Icon(_icon),
-          onPressed: _press,
-        ));
+  List<Widget> widgets(String text){
+    List<String> list = text.split('');
+    return list.map((e) => Text(e)).toList();
   }
+
 }
 
-class Delimiter extends StatelessWidget {
-  final EdgeInsetsGeometry _edgeInsets;
-  final double? height;
-  final double? width;
-
-  const Delimiter(this._edgeInsets, {this.height, this.width, Key? key})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-        padding: _edgeInsets,
-        child: SizedBox(
-          height: height,
-          width: width,
-          child: Container(
-            color: ConstantColors.colorDelimiter,
-          ),
-        ));
-  }
-}
 /*
 *  return Wrap(
       runSpacing: 30,

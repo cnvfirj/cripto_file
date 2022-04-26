@@ -45,7 +45,7 @@ class _Portrait extends StatelessWidget {
           // flex: 8,
           child: Center(
               child: TextButton(
-            child: const Text('name key'),
+            child: const Text('name key',style: TextStyle(color:ConstantColors.colorTextKey)),
             onPressed: () {},
           )),
         ),
@@ -81,7 +81,7 @@ class _Landscape extends StatelessWidget {
         ),
         Expanded(
           child:Wrap(
-
+            spacing:-6,
             direction: Axis.vertical,
             alignment: WrapAlignment.center,
             children: widgets('name key')
@@ -93,7 +93,7 @@ class _Landscape extends StatelessWidget {
 
   List<Widget> widgets(String text){
     List<String> list = text.split('');
-    return list.map((e) => Text(e)).toList();
+    return list.map((e) => Text(e,style: TextStyle(color:ConstantColors.colorTextKey),)).toList();
   }
 
 }

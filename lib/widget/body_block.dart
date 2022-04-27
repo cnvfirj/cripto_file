@@ -38,8 +38,8 @@ class _Portrait extends StatelessWidget{
           EdgeInsets.only(left: 5, right: 5),
           height: Sized.widthDelimiter,
         ),
-        Expanded(
-          child: CommonTextButton((){}),
+        const Expanded(
+          child: CommonText(),
         ),
         const CommonDelimiter(
           EdgeInsets.only(left: 5, right: 5),
@@ -55,7 +55,13 @@ class _Portrait extends StatelessWidget{
               width: Sized.widthDelimiter,
                 height: Sized.icon
             ),
-            CommonButton(Icons.add,(){}),
+            CommonButton(Icons.arrow_downward,(){}),
+            const CommonDelimiter(
+              EdgeInsets.only(top: 5, bottom: 5),
+              width: Sized.widthDelimiter,
+                height: Sized.icon
+            ),
+            CommonButton(Icons.arrow_upward,(){}),
             const CommonDelimiter(
               EdgeInsets.only(top: 5, bottom: 5),
               width: Sized.widthDelimiter,
@@ -67,13 +73,7 @@ class _Portrait extends StatelessWidget{
               width: Sized.widthDelimiter,
                 height: Sized.icon
             ),
-            CommonButton(Icons.add,(){}),
-            const CommonDelimiter(
-              EdgeInsets.only(top: 5, bottom: 5),
-              width: Sized.widthDelimiter,
-                height: Sized.icon
-            ),
-            CommonButton(Icons.add,(){}),
+            CommonButton(Icons.clear,(){}),
             const CommonDelimiter(
               EdgeInsets.only(top: 5, bottom: 5),
               width: Sized.widthDelimiter,
@@ -85,8 +85,8 @@ class _Portrait extends StatelessWidget{
           EdgeInsets.only(left: 5, right: 5),
           height: Sized.widthDelimiter,
         ),
-        Expanded(
-          child: CommonTextButton((){}),
+        const Expanded(
+          child: CommonText(),
         ),
         const CommonDelimiter(
           EdgeInsets.only(left: 5, right: 5),
@@ -110,8 +110,8 @@ class _Landscape extends StatelessWidget{
           EdgeInsets.only(top: 5, bottom: 5),
           width: Sized.widthDelimiter,
         ),
-        Expanded(
-          child: CommonTextButton((){}),
+        const Expanded(
+          child: CommonText(),
         ),
         const CommonDelimiter(
           EdgeInsets.only(top: 5, bottom: 5),
@@ -157,8 +157,8 @@ class _Landscape extends StatelessWidget{
           EdgeInsets.only(top: 5, bottom: 5),
           width: Sized.widthDelimiter,
         ),
-        Expanded(
-          child: CommonTextButton((){}),
+        const Expanded(
+          child: CommonText(),
         ),
         const CommonDelimiter(
           EdgeInsets.only(top: 5, bottom: 5),

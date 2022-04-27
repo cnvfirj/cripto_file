@@ -42,9 +42,9 @@ class _Portrait extends StatelessWidget {
       children: [
         const CommonDelimiter(EdgeInsets.only(top: 5, bottom: 5),
             width: Sized.widthDelimiter),
-        Expanded(
+        const Expanded(
           // flex: 8,
-          child: CommonTextButton((){}),
+          child: CommonText(),
         ),
         const CommonDelimiter(EdgeInsets.only(top: 5, bottom: 5),
             width: Sized.widthDelimiter),

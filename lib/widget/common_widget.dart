@@ -7,7 +7,7 @@ class CommonButton extends StatelessWidget {
   final IconData _icon;
   final Press _press;
 
-  const CommonButton(this._icon, this._press);
+  const CommonButton(this._icon, this._press, {Key? key}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +40,29 @@ class CommonDelimiter extends StatelessWidget {
           child: Container(
             color: ConstantColors.colorDelimiter,
           ),
+        ));
+  }
+}
+
+class CommonTextButton extends StatefulWidget{
+
+  final Press _press;
+
+  const CommonTextButton(this._press,{Key? key}) : super(key: key);
+
+
+  @override
+  State createState() =>_StateCommonTextButton();
+}
+
+class _StateCommonTextButton extends State<CommonTextButton>{
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: TextButton(
+          child: const Text('text field',style: TextStyle(color:ConstantColors.colorTextKey)),
+          onPressed: widget._press,
         ));
   }
 }

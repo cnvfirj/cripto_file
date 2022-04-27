@@ -40,20 +40,23 @@ class _Portrait extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        const CommonDelimiter(EdgeInsets.only(top: 5, bottom: 5),
+            width: Sized.widthDelimiter),
         Expanded(
           // flex: 8,
-          child: Center(
-              child: TextButton(
-            child: const Text('name key',style: TextStyle(color:ConstantColors.colorTextKey)),
-            onPressed: () {},
-          )),
+          child: CommonTextButton((){}),
         ),
+        const CommonDelimiter(EdgeInsets.only(top: 5, bottom: 5),
+            width: Sized.widthDelimiter),
+        CommonButton(Icons.add, () {}),
         const CommonDelimiter(EdgeInsets.only(top: 5, bottom: 5),
             width: Sized.widthDelimiter),
         CommonButton(Icons.share, () {}),
         const CommonDelimiter(EdgeInsets.only(top: 5, bottom: 5),
             width: Sized.widthDelimiter),
         CommonButton(Icons.clear, () {}),
+        const CommonDelimiter(EdgeInsets.only(top: 5, bottom: 5),
+            width: Sized.widthDelimiter),
       ],
     );
   }
@@ -68,6 +71,10 @@ class _Landscape extends StatelessWidget {
       mainAxisSize: MainAxisSize.max,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        const CommonDelimiter(
+          EdgeInsets.only(left: 5, right: 5),
+          height: Sized.widthDelimiter,
+        ),
         CommonButton(Icons.clear, () {}),
         const CommonDelimiter(
           EdgeInsets.only(left: 5, right: 5),
@@ -78,14 +85,24 @@ class _Landscape extends StatelessWidget {
           EdgeInsets.only(left: 5, right: 5),
           height: Sized.widthDelimiter,
         ),
+        CommonButton(Icons.add, () {}),
+        const CommonDelimiter(
+          EdgeInsets.only(left: 5, right: 5),
+          height: Sized.widthDelimiter,
+        ),
+
         Expanded(
           child:Wrap(
             spacing:-6,
             direction: Axis.vertical,
             alignment: WrapAlignment.center,
-            children: widgets('name key')
+            children: widgets('text field')
           )
-            )
+            ),
+        const CommonDelimiter(
+          EdgeInsets.only(left: 5, right: 5),
+          height: Sized.widthDelimiter,
+        ),
       ],
     );
   }

@@ -61,8 +61,8 @@ class _StateCommonText extends State<CommonText>{
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-        child:  Text('text field',style: TextStyle(color:ConstantColors.colorTextKey)),
+    return Center(
+        child:  TextButton(onPressed: (){}, child: Text('text field',style: TextStyle(color:ConstantColors.colorTextKey))),
           // onPressed: widget._press,
         );
   }

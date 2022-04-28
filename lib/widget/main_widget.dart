@@ -1,5 +1,8 @@
+import 'package:cripto_file/generated/l10n.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cripto_file/widget/bar_block.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'body_block.dart';
 import 'key_block.dart';
@@ -10,10 +13,17 @@ class MainWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        DefaultCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
       title: "Encrypt File",
-      home: GroupWidget(),
+      home: const GroupWidget(),
     );
   }
 

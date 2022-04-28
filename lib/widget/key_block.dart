@@ -91,13 +91,8 @@ class _Landscape extends StatelessWidget {
           height: Sized.widthDelimiter,
         ),
 
-        Expanded(
-          child:Wrap(
-            spacing:-6,
-            direction: Axis.vertical,
-            alignment: WrapAlignment.center,
-            children: widgets('text field')
-          )
+        const Expanded(
+          child: CommonText()
             ),
         const CommonDelimiter(
           EdgeInsets.only(left: 5, right: 5),
@@ -116,8 +111,8 @@ class _Landscape extends StatelessWidget {
 
 /*
 *  return Wrap(
-      runSpacing: 30,
-      direction: Axis.vertical,
-      alignment: WrapAlignment.center,
-      children: text.split("").map((string) => Text(string, style: TextStyle(fontSize: 22))).toList(),
-    );*/
+            spacing:-6,
+            direction: Axis.vertical,
+            alignment: WrapAlignment.center,
+            children: widgets('text field')
+          );*/

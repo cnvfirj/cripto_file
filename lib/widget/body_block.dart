@@ -36,7 +36,7 @@ class _Portrait extends StatelessWidget {
           EdgeInsets.only(left: 5, right: 5),
           height: Sized.widthDelimiter,
         ),
-        Expanded(child: EncryptDecrypt(press: () {})),
+        const Expanded(child: CommonText()),
         const CommonDelimiter(
           EdgeInsets.only(left: 5, right: 5),
           height: Sized.widthDelimiter,
@@ -66,7 +66,7 @@ class _Portrait extends StatelessWidget {
           EdgeInsets.only(left: 5, right: 5),
           height: Sized.widthDelimiter,
         ),
-        Expanded(child: EncryptDecrypt(press: () {})),
+        const Expanded(child: CommonText()),
         const CommonDelimiter(
           EdgeInsets.only(left: 5, right: 5),
           height: Sized.widthDelimiter,
@@ -88,7 +88,7 @@ class _Landscape extends StatelessWidget {
           EdgeInsets.only(top: 5, bottom: 5),
           width: Sized.widthDelimiter,
         ),
-        Expanded(child: EncryptDecrypt(press: () {})),
+        const Expanded(child: CommonText()),
         const CommonDelimiter(
           EdgeInsets.only(top: 5, bottom: 5),
           width: Sized.widthDelimiter,
@@ -118,7 +118,7 @@ class _Landscape extends StatelessWidget {
           EdgeInsets.only(top: 5, bottom: 5),
           width: Sized.widthDelimiter,
         ),
-        Expanded(child: EncryptDecrypt(press: () {})),
+        const Expanded(child: CommonText()),
         const CommonDelimiter(
           EdgeInsets.only(top: 5, bottom: 5),
           width: Sized.widthDelimiter,
@@ -128,20 +128,4 @@ class _Landscape extends StatelessWidget {
   }
 }
 
-class EncryptDecrypt extends StatelessWidget {
-  final VoidCallback _press;
 
-  const EncryptDecrypt({required VoidCallback press, Key? key})
-      : _press = press,
-        super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: const CommonText(),
-      floatingActionButton:
-          IconButton(icon: const Icon(Icons.share), onPressed: _press),
-
-    );
-  }
-}

@@ -21,5 +21,11 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ua';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "fill_a_decrypt":
+            MessageLookupByLibrary.simpleMessage("Файл розшифрування"),
+        "fill_a_encrypt":
+            MessageLookupByLibrary.simpleMessage("Файл шифрування"),
+        "key_fill": MessageLookupByLibrary.simpleMessage("Введи ключ")
+      };
 }

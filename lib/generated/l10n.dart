@@ -50,11 +50,35 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  // skipped getter for the 'Key fill' key
+  /// `Need a key`
+  String get key_fill {
+    return Intl.message(
+      'Need a key',
+      name: 'key_fill',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'Fill a encrypt' key
+  /// `Object to encrypt`
+  String get fill_a_encrypt {
+    return Intl.message(
+      'Object to encrypt',
+      name: 'fill_a_encrypt',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'Fill a decrypt' key
+  /// `Object to decrypt`
+  String get fill_a_decrypt {
+    return Intl.message(
+      'Object to decrypt',
+      name: 'fill_a_decrypt',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,6 +1,5 @@
 {
-  "Key fill": "Need a key",
-  "Fill a encrypt": "Object to encrypt",
-  "Fill a decrypt": "Object to decrypt"
-
+  "key_fill": "Need a key",
+  "fill_a_encrypt": "Object to encrypt",
+  "fill_a_decrypt": "Object to decrypt"
 }

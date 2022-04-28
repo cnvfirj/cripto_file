@@ -1,5 +1,5 @@
 {
-  "Key fill": "Введи ключ",
-  "Fill a encrypt": "Файл шифрування",
-  "Fill a decrypt": "Файл розшифрування"
+  "key_fill": "Введи ключ",
+  "fill_a_encrypt": "Файл шифрування",
+  "fill_a_decrypt": "Файл розшифрування"
 }

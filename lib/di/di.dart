@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class InjectBloc{
   static final InjectBloc _single = InjectBloc();
-  late CubitKey _cubitKey;
+
 
   void on(BuildContext context){
     // if(_cubitKey==null)_cubitKey = BlocKey(S.of(context).);

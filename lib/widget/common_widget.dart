@@ -1,11 +1,11 @@
 import 'package:cripto_file/constants/colors.dart';
 import 'package:flutter/material.dart';
 
-typedef Press = Function();
+// typedef Press = Function();
 
 class CommonButton extends StatelessWidget {
   final IconData _icon;
-  final Press _press;
+  final VoidCallback _press;
 
   const CommonButton(this._icon, this._press, {Key? key}): super(key: key);
 

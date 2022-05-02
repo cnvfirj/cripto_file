@@ -1,34 +1,22 @@
 
 import 'package:cripto_file/generated/l10n.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+typedef StringCalledKey = Function(String? key);
+abstract class NamedKey {
+  StringCalledKey? _getKey;
 
-abstract class CubitKey extends Cubit<String>{
+  // CubitWidgetKey(String start):super(start);
 
-  CubitKey(String start):super(start);
+  void setKey(String key);
 
-  void pressText();
-  void pressShare();
+  void setCalledKey(StringCalledKey getKey){
+    _getKey = _getKey;
+  }
+}
+
+abstract class WidgetKey{
+  void pressFieldKey();
+  void pressShareKey();
   void pressClear();
-  void addKey();
 }
 
-class BlocKey extends CubitKey{
-  BlocKey(String start) : super(start);
-
-  @override
-  void addKey() {
-  }
-
-  @override
-  void pressClear() {
-  }
-
-  @override
-  void pressShare() {
-  }
-
-  @override
-  void pressText() {
-  }
-
-}

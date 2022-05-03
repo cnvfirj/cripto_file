@@ -48,7 +48,9 @@ class _Portrait extends StatelessWidget {
         ),
         const CommonDelimiter(EdgeInsets.only(top: 5, bottom: 5),
             width: Sized.widthDelimiter),
-
+        CommonButton(Icons.lock, () {}),
+        const CommonDelimiter(EdgeInsets.only(top: 5, bottom: 5),
+            width: Sized.widthDelimiter),
         CommonButton(Icons.share, () {}),
         const CommonDelimiter(EdgeInsets.only(top: 5, bottom: 5),
             width: Sized.widthDelimiter),
@@ -83,7 +85,9 @@ class _Landscape extends StatelessWidget {
           EdgeInsets.only(left: 5, right: 5),
           height: Sized.widthDelimiter,
         ),
-
+        CommonButton(Icons.lock, () {}),
+        const CommonDelimiter(EdgeInsets.only(top: 5, bottom: 5),
+            width: Sized.widthDelimiter),
         const Expanded(
           child: CommonText()
             ),

@@ -1,22 +1,41 @@
 
 import 'package:cripto_file/generated/l10n.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 typedef StringCalledKey = Function(String? key);
 abstract class NamedKey {
-  StringCalledKey? _getKey;
-
-  // CubitWidgetKey(String start):super(start);
 
   void setKey(String key);
+  void setCalledKey(StringCalledKey getKey);
+  String getKey();
 
-  void setCalledKey(StringCalledKey getKey){
-    _getKey = _getKey;
-  }
 }
 
 abstract class WidgetKey{
-  void pressFieldKey();
-  void pressShareKey();
-  void pressClear();
+
+  void _pressFieldKey();
+  void _pressShareKey();
+  void _pressClear();
+  void _pressLock();
+
+}
+
+class CubitFieldKey extends Cubit<String>{
+  CubitFieldKey(String initialState) : super(initialState);
+  void setKey(String key)=>emit(key);
+  String getKey()=>state;
+  void press(){
+
+  }
+}
+
+class CubitKeyLock extends Cubit<IconData>{
+  CubitKeyLock() : super(Icons.lock_open);
+  void setLock(IconData lock)=>emit(lock);
+  void press(){
+    // setLock(!state);
+  }
 }
 

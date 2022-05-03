@@ -1,5 +1,7 @@
+import 'package:cripto_file/bloc/bloc_key.dart';
 import 'package:cripto_file/constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 // typedef Press = Function();
 
@@ -20,6 +22,23 @@ class CommonButton extends StatelessWidget {
           onPressed: _press,
         ));
   }
+}
+
+class CommonLockButton extends StatelessWidget{
+  final CubitKeyLock cubitKeyLock;
+  // final IconData lock;
+  // final IconData unLock;
+  const CommonLockButton({required this.cubitKeyLock,Key? key}) : super(key: key);
+
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder(
+        builder:(context,icon){
+
+        } );
+  }
+
 }
 
 class CommonDelimiter extends StatelessWidget {

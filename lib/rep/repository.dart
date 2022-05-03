@@ -1,11 +1,4 @@
 
 import 'package:cripto_file/widget/childWidgets/button_lock.dart';
+import 'package:flutter/material.dart';
 
-class MainRepository with RepLockKey{
-
-  RepLockKey getRepLockKey()=>this;
-
-  void readData(){
-
-  }
-}

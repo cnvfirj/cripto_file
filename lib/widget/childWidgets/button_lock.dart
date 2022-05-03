@@ -1,8 +1,6 @@
-import 'package:cripto_file/di/di.dart';
-import 'package:cripto_file/rep/repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LockKey extends StatelessWidget{
   const LockKey({Key? key}) : super(key: key);
@@ -31,40 +29,38 @@ class BlocLockKey extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_)=>CubitKeyLock(rep: Inject.single.mainRepository.getRepLockKey()),
+      create: (BuildContext context)=>CubitKeyLock(),
       child: const LockKey(),
     );
   }
 }
+
 class CubitKeyLock extends Cubit<IconData>{
-
-  final RepLockKey rep;
-
-  CubitKeyLock({required this.rep}) : super(Icons.lock_open) {
-      rep.setListen(setLock);
-  }
-  void setLock(IconData lock)=>emit(lock);
-
-  void press(){
-   rep.changeLock();
-  }
-}
-
-class RepLockKey{
-  dynamic listen;
-
+  static const String keyLock = 'key_lock';
   bool _lock = false;
 
-  void setListen(l)=>listen = l;
+  CubitKeyLock() : super(Icons.lock_open) {
+    read();
+  }
 
-  void changeLock(){
+  void read() async{
+    SharedPreferences p = await SharedPreferences.getInstance();
+    _lock = p.getBool(keyLock)!;
+    checkBool();
+  }
+
+  void setIcon(IconData lock)=>emit(lock);
+
+  void press()async{
     _lock = !_lock;
-    if(listen!=null)listen(_lock);
+    checkBool();
+    SharedPreferences p = await SharedPreferences.getInstance();
+    p.setBool(keyLock, _lock);
   }
 
-  void setLock(bool lock){
-    _lock = lock;
-    if(listen!=null)listen(_lock);
+  void checkBool(){
+    if(_lock)setIcon(Icons.lock);
+    else setIcon(Icons.lock_open);
   }
-
 }
+

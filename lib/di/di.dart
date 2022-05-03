@@ -9,11 +9,9 @@ class Inject{
 
   static Inject get single => _single;
 
-  final MainRepository _mainRepository = MainRepository();
 
   void on(BuildContext context){
     // if(_cubitKey==null)_cubitKey = BlocKey(S.of(context).);
   }
 
-  MainRepository get mainRepository => _mainRepository;
 }

@@ -24,22 +24,6 @@ class CommonButton extends StatelessWidget {
   }
 }
 
-class CommonLockButton extends StatelessWidget{
-  final CubitKeyLock cubitKeyLock;
-  // final IconData lock;
-  // final IconData unLock;
-  const CommonLockButton({required this.cubitKeyLock,Key? key}) : super(key: key);
-
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder(
-        builder:(context,icon){
-
-        } );
-  }
-
-}
 
 class CommonDelimiter extends StatelessWidget {
   final EdgeInsetsGeometry _edgeInsets;

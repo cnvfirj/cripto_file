@@ -31,11 +31,4 @@ class CubitFieldKey extends Cubit<String>{
   }
 }
 
-class CubitKeyLock extends Cubit<IconData>{
-  CubitKeyLock() : super(Icons.lock_open);
-  void setLock(IconData lock)=>emit(lock);
-  void press(){
-    // setLock(!state);
-  }
-}
 

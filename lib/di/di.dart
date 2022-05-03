@@ -1,13 +1,19 @@
 import 'package:cripto_file/bloc/bloc_key.dart';
 import 'package:cripto_file/generated/l10n.dart';
+import 'package:cripto_file/rep/repository.dart';
 import 'package:flutter/material.dart';
 
-class InjectBloc{
-  static final InjectBloc _single = InjectBloc();
+class Inject{
 
+  static final Inject _single = Inject();
+
+  static Inject get single => _single;
+
+  final MainRepository _mainRepository = MainRepository();
 
   void on(BuildContext context){
     // if(_cubitKey==null)_cubitKey = BlocKey(S.of(context).);
   }
 
+  MainRepository get mainRepository => _mainRepository;
 }

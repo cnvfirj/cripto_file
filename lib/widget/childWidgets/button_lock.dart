@@ -1,3 +1,4 @@
+import 'package:cripto_file/rep/repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -36,16 +37,21 @@ class BlocLockKey extends StatelessWidget{
 }
 
 class CubitKeyLock extends Cubit<IconData>{
+
   static const String keyLock = 'key_lock';
+
+  final RepKey rep;
+
   bool _lock = false;
 
-  CubitKeyLock() : super(Icons.lock_open) {
+  CubitKeyLock({required this.rep}) : super(Icons.lock_open) {
     read();
   }
 
   void read() async{
     SharedPreferences p = await SharedPreferences.getInstance();
     _lock = p.getBool(keyLock)!;
+    rep.lockKey(_lock);
     checkBool();
   }
 
@@ -59,8 +65,11 @@ class CubitKeyLock extends Cubit<IconData>{
   }
 
   void checkBool(){
-    if(_lock)setIcon(Icons.lock);
-    else setIcon(Icons.lock_open);
+    if(_lock) {
+      setIcon(Icons.lock);
+    } else {
+      setIcon(Icons.lock_open);
+    }
   }
 }
 

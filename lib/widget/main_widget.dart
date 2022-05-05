@@ -15,11 +15,11 @@ class MainWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      localizationsDelegates: [
+      localizationsDelegates:const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
-        DefaultCupertinoLocalizations.delegate,
+        // DefaultCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
       title: "Encrypt File",

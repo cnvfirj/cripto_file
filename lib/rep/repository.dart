@@ -15,7 +15,7 @@ class RepositoryBlocKey implements PressLockKey,FieldTextNameKey{
   @override
   void lockKey(bool lock) {
     // TODO: implement lockKey
-    setterNameKey('$lock');
+    // setterNameKey('$lock');
   }
 
   @override

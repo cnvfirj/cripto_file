@@ -3,6 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../constants/colors.dart';
+import '../../di/di.dart';
+
+class BlocLockKey extends StatelessWidget{
+  const BlocLockKey({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (BuildContext context)=>CubitKeyLock(lockKey: Inject.single.repositoryBlocKey),
+      child: const LockKey(),
+    );
+  }
+}
 
 class LockKey extends StatelessWidget{
   const LockKey({Key? key}) : super(key: key);
@@ -12,9 +26,10 @@ class LockKey extends StatelessWidget{
     return BlocBuilder<CubitKeyLock,IconData>(
         builder:(BuildContext context,IconData icon){
           return SizedBox(
-            width: 25,
-            height: 25,
+            width: 50,
+            height: 50,
             child: IconButton(
+              color: ConstantColors.colorDelimiter,
               icon: Icon(icon),
               onPressed: (){
                 context.read<CubitKeyLock>().press();
@@ -25,41 +40,33 @@ class LockKey extends StatelessWidget{
   }
 }
 
-class BlocLockKey extends StatelessWidget{
-  const BlocLockKey({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context)=>CubitKeyLock(),
-      child: const LockKey(),
-    );
-  }
-}
-
 class CubitKeyLock extends Cubit<IconData>{
 
   static const String keyLock = 'key_lock';
 
-  final RepKey rep;
+  final PressLockKey lockKey;
 
   bool _lock = false;
 
-  CubitKeyLock({required this.rep}) : super(Icons.lock_open) {
+  CubitKeyLock({required this.lockKey}) : super(Icons.visibility) {
     read();
   }
 
   void read() async{
     SharedPreferences p = await SharedPreferences.getInstance();
-    _lock = p.getBool(keyLock)!;
-    rep.lockKey(_lock);
-    checkBool();
+    bool? b = p.getBool(keyLock);
+    if(b!=null){
+      _lock = b;
+      lockKey.lockKey(_lock);
+      checkBool();
+    }
   }
 
   void setIcon(IconData lock)=>emit(lock);
 
   void press()async{
     _lock = !_lock;
+    lockKey.lockKey(_lock);
     checkBool();
     SharedPreferences p = await SharedPreferences.getInstance();
     p.setBool(keyLock, _lock);
@@ -67,9 +74,9 @@ class CubitKeyLock extends Cubit<IconData>{
 
   void checkBool(){
     if(_lock) {
-      setIcon(Icons.lock);
+      setIcon(Icons.visibility_off);
     } else {
-      setIcon(Icons.lock_open);
+      setIcon(Icons.visibility);
     }
   }
 }

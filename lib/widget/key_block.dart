@@ -1,5 +1,7 @@
 import 'package:cripto_file/constants/colors.dart';
 import 'package:cripto_file/constants/sized.dart';
+import 'package:cripto_file/widget/childWidgets/button_key_text.dart';
+import 'package:cripto_file/widget/childWidgets/button_lock.dart';
 import 'package:flutter/material.dart';
 import 'childWidgets/common_widget.dart';
 
@@ -44,11 +46,11 @@ class _Portrait extends StatelessWidget {
             width: Sized.widthDelimiter),
         const Expanded(
           // flex: 8,
-          child: CommonText(),
+          child: BlocNameKeyText(),
         ),
         const CommonDelimiter(EdgeInsets.only(top: 5, bottom: 5),
             width: Sized.widthDelimiter),
-        CommonButton(Icons.lock, () {}),
+        const BlocLockKey(),
         const CommonDelimiter(EdgeInsets.only(top: 5, bottom: 5),
             width: Sized.widthDelimiter),
         CommonButton(Icons.share, () {}),
@@ -85,12 +87,12 @@ class _Landscape extends StatelessWidget {
           EdgeInsets.only(left: 5, right: 5),
           height: Sized.widthDelimiter,
         ),
-        CommonButton(Icons.lock, () {}),
-        const CommonDelimiter(EdgeInsets.only(top: 5, bottom: 5),
-            width: Sized.widthDelimiter),
+        const BlocLockKey(),
+        const CommonDelimiter(EdgeInsets.only(left: 5, right: 5),
+            height: Sized.widthDelimiter),
         const Expanded(
-          child: CommonText()
-            ),
+          child: BlocNameKeyText(),
+        ),
         const CommonDelimiter(
           EdgeInsets.only(left: 5, right: 5),
           height: Sized.widthDelimiter,

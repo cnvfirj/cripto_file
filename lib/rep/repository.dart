@@ -1,8 +1,32 @@
 
-import 'package:cripto_file/widget/childWidgets/button_lock.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
-abstract class RepKey{
+abstract class PressLockKey{
   void lockKey(bool lock);
-  void nameKey(String name);
+}
+
+abstract class FieldTextNameKey{
+  void pressNameKey(BuildContext context);
+  void registerSetterNameKey(dynamic func);
+}
+
+class RepositoryBlocKey implements PressLockKey,FieldTextNameKey{
+  dynamic setterNameKey; //передаем имя ключа в поле ключа. Регистрация происходит в конструкторе кубита
+  @override
+  void lockKey(bool lock) {
+    // TODO: implement lockKey
+    setterNameKey('$lock');
+  }
+
+  @override
+  void pressNameKey(BuildContext context) {
+
+  }
+
+  @override
+  void registerSetterNameKey(func) {
+    // TODO: implement registerSetterNameKey
+    setterNameKey = func;
+  }
+
 }

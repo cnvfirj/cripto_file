@@ -50,12 +50,13 @@ class NameKeyText extends StatelessWidget{
 
 class CubitNameKeyText extends Cubit<String>{
 
-  static const String keyNameKey = 'key_name_key';
+  // static const String keyNameKey = 'key_name_key';
 
   final FieldTextNameKey fieldNameKey;
 
   CubitNameKeyText({required this.fieldNameKey}) : super(S.current.key_fill){
     fieldNameKey.registerSetterNameKey(setName);
+    fieldNameKey.registerVisibleNameKey(lock);
   }
 
   // void read() async{
@@ -69,5 +70,17 @@ class CubitNameKeyText extends Cubit<String>{
   }
 
   void setName(String name)=>emit(name);
+
+  late String temp;
+
+  void lock(bool lock){
+    if(lock){
+      temp = state;
+      setName('****');
+    }else{
+      setName(temp);
+    }
+
+  }
 
 }

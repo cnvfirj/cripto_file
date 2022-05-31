@@ -15,5 +15,11 @@ class Inject{
     // if(_cubitKey==null)_cubitKey = BlocKey(S.of(context).);
   }
 
-  RepositoryBlocKey get repositoryBlocKey => _repositoryBlocKey;
+  // RepositoryBlocKey get repositoryBlocKey => _repositoryBlocKey;
+
+  PressLockKey get pressLockKey =>_repositoryBlocKey;
+
+  FieldTextNameKey get fieldTextNameKey =>_repositoryBlocKey;
+
+  PressOtherButtons get pressOtherButtons =>_repositoryBlocKey;
 }

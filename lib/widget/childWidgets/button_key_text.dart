@@ -13,7 +13,7 @@ class BlocNameKeyText extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (BuildContext context)=>CubitNameKeyText(fieldNameKey: Inject.single.repositoryBlocKey),
+        create: (BuildContext context)=>CubitNameKeyText(fieldNameKey: Inject.single.fieldTextNameKey),
         child: const NameKeyText(),
     );
   }
@@ -50,13 +50,12 @@ class NameKeyText extends StatelessWidget{
 
 class CubitNameKeyText extends Cubit<String>{
 
-  // static const String keyNameKey = 'key_name_key';
-
   final FieldTextNameKey fieldNameKey;
 
   CubitNameKeyText({required this.fieldNameKey}) : super(S.current.key_fill){
     fieldNameKey.registerSetterNameKey(setName);
     fieldNameKey.registerVisibleNameKey(lock);
+    fieldNameKey.registerGetterNameKey(getName);
   }
 
   // void read() async{
@@ -71,14 +70,19 @@ class CubitNameKeyText extends Cubit<String>{
 
   void setName(String name)=>emit(name);
 
-  late String temp;
+  String getName()=>state;
+
+   String? temp;
 
   void lock(bool lock){
     if(lock){
       temp = state;
       setName('****');
     }else{
-      setName(temp);
+      if(temp!=null){
+        setName(temp!);
+        temp = null;
+      }
     }
 
   }

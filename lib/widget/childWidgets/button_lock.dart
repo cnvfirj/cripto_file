@@ -12,7 +12,7 @@ class BlocLockKey extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context)=>CubitKeyLock(lockKey: Inject.single.repositoryBlocKey),
+      create: (BuildContext context)=>CubitKeyLock(lockKey: Inject.single.pressLockKey),
       child: const LockKey(),
     );
   }

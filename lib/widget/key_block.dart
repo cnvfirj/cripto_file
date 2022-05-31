@@ -1,5 +1,6 @@
 import 'package:cripto_file/constants/colors.dart';
 import 'package:cripto_file/constants/sized.dart';
+import 'package:cripto_file/di/di.dart';
 import 'package:cripto_file/widget/childWidgets/button_key_text.dart';
 import 'package:cripto_file/widget/childWidgets/button_lock.dart';
 import 'package:flutter/material.dart';
@@ -53,10 +54,14 @@ class _Portrait extends StatelessWidget {
         const BlocLockKey(),
         const CommonDelimiter(EdgeInsets.only(top: 5, bottom: 5),
             width: Sized.widthDelimiter),
-        CommonButton(Icons.share, () {}),
+        CommonButton(Icons.share, (){
+          Inject.single.pressOtherButtons.pressShare(context);
+        }),
         const CommonDelimiter(EdgeInsets.only(top: 5, bottom: 5),
             width: Sized.widthDelimiter),
-        CommonButton(Icons.clear, () {}),
+        CommonButton(Icons.clear, () {
+          Inject.single.pressOtherButtons.pressClear(context);
+        }),
         const CommonDelimiter(EdgeInsets.only(top: 5, bottom: 5),
             width: Sized.widthDelimiter),
       ],
@@ -77,12 +82,16 @@ class _Landscape extends StatelessWidget {
           EdgeInsets.only(left: 5, right: 5),
           height: Sized.widthDelimiter,
         ),
-        CommonButton(Icons.clear, () {}),
+        CommonButton(Icons.clear, () {
+          Inject.single.pressOtherButtons.pressClear(context);
+        }),
         const CommonDelimiter(
           EdgeInsets.only(left: 5, right: 5),
           height: Sized.widthDelimiter,
         ),
-        CommonButton(Icons.share, () {}),
+        CommonButton(Icons.share, () {
+          Inject.single.pressOtherButtons.pressShare(context);
+        }),
         const CommonDelimiter(
           EdgeInsets.only(left: 5, right: 5),
           height: Sized.widthDelimiter,
@@ -103,7 +112,7 @@ class _Landscape extends StatelessWidget {
 
   List<Widget> widgets(String text){
     List<String> list = text.split('');
-    return list.map((e) => Text(e,style: TextStyle(color:ConstantColors.colorTextKey),)).toList();
+    return list.map((e) => Text(e,style: const TextStyle(color:ConstantColors.colorTextKey),)).toList();
   }
 
 }

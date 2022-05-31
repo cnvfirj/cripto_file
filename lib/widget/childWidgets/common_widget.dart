@@ -25,6 +25,8 @@ class CommonButton extends StatelessWidget {
 }
 
 
+
+
 class CommonDelimiter extends StatelessWidget {
   final EdgeInsetsGeometry _edgeInsets;
   final double? height;
@@ -47,26 +49,4 @@ class CommonDelimiter extends StatelessWidget {
   }
 }
 
-class CommonText extends StatefulWidget{
-  const CommonText({Key? key}) : super(key: key);
 
-
-  // final Press _press;
-
-  // const CommonTextButton(this._press,{Key? key}) : super(key: key);
-
-
-  @override
-  State createState() =>_StateCommonText();
-}
-
-class _StateCommonText extends State<CommonText>{
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-        child:  TextButton(onPressed: (){}, child: Text('text field',style: TextStyle(color:ConstantColors.colorTextKey))),
-          // onPressed: widget._press,
-        );
-  }
-}

@@ -1,5 +1,6 @@
 import 'package:cripto_file/constants/colors.dart';
 import 'package:cripto_file/constants/sized.dart';
+import 'package:cripto_file/widget/childWidgets/button_body_text.dart';
 import 'package:flutter/material.dart';
 
 import 'childWidgets/common_widget.dart';
@@ -36,7 +37,7 @@ class _Portrait extends StatelessWidget {
           EdgeInsets.only(left: 5, right: 5),
           height: Sized.widthDelimiter,
         ),
-        const Expanded(child: CommonText()),
+        const Expanded(child: CommonTextButton()),
         const CommonDelimiter(
           EdgeInsets.only(left: 5, right: 5),
           height: Sized.widthDelimiter,
@@ -66,7 +67,7 @@ class _Portrait extends StatelessWidget {
           EdgeInsets.only(left: 5, right: 5),
           height: Sized.widthDelimiter,
         ),
-        const Expanded(child: CommonText()),
+        const Expanded(child: CommonTextButton()),
         const CommonDelimiter(
           EdgeInsets.only(left: 5, right: 5),
           height: Sized.widthDelimiter,
@@ -88,7 +89,7 @@ class _Landscape extends StatelessWidget {
           EdgeInsets.only(top: 5, bottom: 5),
           width: Sized.widthDelimiter,
         ),
-        const Expanded(child: CommonText()),
+        const Expanded(child: CommonTextButton()),
         const CommonDelimiter(
           EdgeInsets.only(top: 5, bottom: 5),
           width: Sized.widthDelimiter,
@@ -118,7 +119,7 @@ class _Landscape extends StatelessWidget {
           EdgeInsets.only(top: 5, bottom: 5),
           width: Sized.widthDelimiter,
         ),
-        const Expanded(child: CommonText()),
+        const Expanded(child: CommonTextButton()),
         const CommonDelimiter(
           EdgeInsets.only(top: 5, bottom: 5),
           width: Sized.widthDelimiter,

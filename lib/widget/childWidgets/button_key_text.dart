@@ -58,6 +58,7 @@ class CubitNameKeyText extends Cubit<String>{
     fieldNameKey.registerGetterNameKey(getName);
   }
 
+
   // void read() async{
   //   SharedPreferences p = await SharedPreferences.getInstance();
   //   String? name = p.getString(keyNameKey);

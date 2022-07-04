@@ -48,7 +48,7 @@ class RepositoryBlocKey implements PressLockKey,FieldTextNameKey,PressOtherButto
   dynamic getterNameKey;//извлекаем имя ключа
   @override
   void registerGetterNameKey(funk) {
-    // TODO: implement registerGetterNameKey
+    // TODO: implement registerGetterNameKey36345737373737djjgf
     getterNameKey = funk;
   }
 
